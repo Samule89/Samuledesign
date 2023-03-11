@@ -16,73 +16,315 @@
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
-    <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+    <body style="background-color: rgb(255, 255, 255);">
+    <iframe id="backgroundImage" src=""></iframe>
+    <ntp-app></ntp-app>
+    <script type="module" src="new_tab_page.js"></script>
+    <link rel="stylesheet" href="chrome://resources/css/text_defaults_md.css">
+    <link rel="stylesheet" href="shared_vars.css">
+  
 
-        <div class="header-container">
-            <header class="wrapper clearfix">
-                <h1 class="title">h1.title</h1>
-                <nav>
-                    <ul>
-                        <li><a href="#">nav ul li a</a></li>
-                        <li><a href="#">nav ul li a</a></li>
-                        <li><a href="#">nav ul li a</a></li>
-                    </ul>
-                </nav>
-            </header>
-        </div>
 
-        <div class="main-container">
-            <div class="main wrapper clearfix">
+<dom-module id="cr-hidden-style" assetpath="chrome://resources/">
+  <template>
+    <style>
+      /* Included here so we don't have to include "iron-positioning" in every
+       * stylesheet. See crbug.com/498405. */
+      [hidden],
+      :host([hidden]) {
+        display: none !important;
+      }
+    </style>
+  </template>
+</dom-module>
 
-                <article>
-                    <header>
-                        <h1>article header h1</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec.</p>
-                    </header>
-                    <section>
-                        <h2>article section h2</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.</p>
-                    </section>
-                    <section>
-                        <h2>article section h2</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.</p>
-                    </section>
-                    <footer>
-                        <h3>article footer h3</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor.</p>
-                    </footer>
-                </article>
+<dom-module id="cr-icons" assetpath="chrome://resources/">
+  <template>
+    <style>
+      .icon-arrow-back {
+        --cr-icon-image: url('chrome://resources/images/icon_arrow_back.svg');
+      }
 
-                <aside>
-                    <h3>aside</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices.</p>
-                </aside>
+      .icon-arrow-dropdown {
+        --cr-icon-image: url('chrome://resources/images/icon_arrow_dropdown.svg');
+      }
 
-            </div> <!-- #main -->
-        </div> <!-- #main-container -->
+      .icon-cancel {
+        --cr-icon-image: url('chrome://resources/images/icon_cancel.svg');
+      }
 
-        <div class="footer-container">
-            <footer class="wrapper">
-                <h3>footer</h3>
-            </footer>
-        </div>
+      .icon-clear {
+        --cr-icon-image: url('chrome://resources/images/icon_clear.svg');
+      }
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+      .icon-copy-content {
+        --cr-icon-image: url('chrome://resources/images/icon_copy_content.svg');
+      }
 
-        <script src="js/main.js"></script>
+      .icon-delete-gray {
+        --cr-icon-image: url('chrome://resources/images/icon_delete_gray.svg');
+      }
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
-        </script>
-    </body>
+      .icon-edit {
+        --cr-icon-image: url('chrome://resources/images/icon_edit.svg');
+      }
+
+      .icon-picture-delete {
+        --cr-icon-image: url('chrome://resources/images/icon_picture_delete.svg');
+      }
+
+      .icon-expand-less {
+        --cr-icon-image: url('chrome://resources/images/icon_expand_less.svg');
+      }
+
+      .icon-expand-more {
+        --cr-icon-image: url('chrome://resources/images/icon_expand_more.svg');
+      }
+
+      .icon-external {
+        --cr-icon-image: url('chrome://resources/images/open_in_new.svg');
+      }
+
+      .icon-more-vert {
+        --cr-icon-image: url('chrome://resources/images/icon_more_vert.svg');
+      }
+
+      .icon-refresh {
+        --cr-icon-image: url('chrome://resources/images/icon_refresh.svg');
+      }
+
+      .icon-search {
+        --cr-icon-image: url('chrome://resources/images/icon_search.svg');
+      }
+
+      .icon-settings {
+        --cr-icon-image: url('chrome://resources/images/icon_settings.svg');
+      }
+
+      .icon-visibility {
+        --cr-icon-image: url('chrome://resources/images/icon_visibility.svg');
+      }
+
+      .icon-visibility-off {
+        --cr-icon-image: url('chrome://resources/images/icon_visibility_off.svg');
+      }
+
+      .subpage-arrow {
+        --cr-icon-image: url('chrome://resources/images/arrow_right.svg');
+      }
+
+      .cr-icon {
+        -webkit-mask-image: var(--cr-icon-image);
+        -webkit-mask-position: center;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-size: var(--cr-icon-size);
+        background-color: var(--cr-icon-color, var(--google-grey-700));
+        flex-shrink: 0;
+        height: var(--cr-icon-ripple-size);
+        margin-inline-end: var(--cr-icon-ripple-margin);
+        margin-inline-start: var(--cr-icon-button-margin-start);
+        user-select: none;
+        width: var(--cr-icon-ripple-size);
+      }
+
+      :host-context([dir=rtl]) .cr-icon {
+        transform: scaleX(-1);  /* Invert X: flip on the Y axis (aka mirror). */
+      }
+
+      .cr-icon.no-overlap {
+        margin-inline-end: 0;
+        margin-inline-start: 0;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .cr-icon {
+          background-color: var(--cr-icon-color, var(--google-grey-500));
+        }
+      }
+    </style>
+  </template>
+</dom-module>
+
+<dom-module id="cr-shared-style" assetpath="chrome://resources/">
+  <template>
+    <style include="cr-hidden-style cr-icons">
+      html,
+      :host {
+        --scrollable-border-color: var(--google-grey-300);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        html,
+        :host {
+          --scrollable-border-color: var(--google-grey-700);
+        }
+      }
+
+      [actionable] {
+        cursor: pointer;
+      }
+
+      /* Horizontal rule line. */
+      .hr {
+        border-top: var(--cr-separator-line);
+      }
+
+      iron-list.cr-separators > *:not([first]) {
+        border-top: var(--cr-separator-line);
+      }
+
+      [scrollable] {
+        border-color: transparent;
+        border-style: solid;
+        border-width: 1px 0;
+        overflow-y: auto;
+      }
+      [scrollable].is-scrolled {
+        border-top-color: var(--scrollable-border-color);
+      }
+      [scrollable].can-scroll:not(.scrolled-to-bottom) {
+        border-bottom-color: var(--scrollable-border-color);
+      }
+      [scrollable] iron-list > :not(.no-outline):focus,
+      [selectable]:focus,
+      [selectable] > :focus {
+        background-color: var(--cr-focused-item-color);
+        outline: none;
+      }
+
+      .scroll-container {
+        display: flex;
+        flex-direction: column;
+        min-height: 1px;
+      }
+
+      [selectable] > * {
+        cursor: pointer;
+      }
+
+      .cr-centered-card-container {
+        box-sizing: border-box;
+        display: block;
+        height: inherit;
+        margin: 0 auto;
+        max-width: var(--cr-centered-card-max-width);
+        min-width: 550px;
+        position: relative;
+        width: calc(100% * var(--cr-centered-card-width-percentage));
+      }
+
+      .cr-container-shadow {
+        box-shadow: inset 0 5px 6px -3px rgba(0, 0, 0, .4);
+        height: var(--cr-container-shadow-height);
+        left: 0;
+        margin: 0 0 var(--cr-container-shadow-margin);
+        opacity: 0;
+        pointer-events: none;
+        position: relative;
+        right: 0;
+        top: 0;
+        transition: opacity 500ms;
+        z-index: 1;
+      }
+
+      /** Styles for elements that implement the CrContainerShadowBehavior */
+      #cr-container-shadow-bottom {
+        margin-bottom: 0;
+        margin-top: var(--cr-container-shadow-margin);
+        transform: scaleY(-1);
+      }
+
+      #cr-container-shadow-top.has-shadow,
+      #cr-container-shadow-bottom.has-shadow {
+        opacity: var(--cr-container-shadow-max-opacity);
+      }
+
+      .cr-row {
+        align-items: center;
+        border-top: var(--cr-separator-line);
+        display: flex;
+        min-height: var(--cr-section-min-height);
+        padding: 0 var(--cr-section-padding);
+      }
+
+      .cr-row.first,
+      .cr-row.continuation {
+        border-top: none;
+      }
+
+      .cr-row-gap {
+        padding-inline-start: 16px;
+      }
+
+      .cr-button-gap {
+        margin-inline-start: 8px;
+      }
+
+      paper-tooltip::part(tooltip) {
+        border-radius: var(--paper-tooltip-border-radius, 2px);
+        font-size: 92.31%;  /* Effectively 12px if the host default is 13px. */
+        font-weight: 500;
+        max-width: 330px;
+        min-width: var(--paper-tooltip-min-width, 200px);
+        padding: var(--paper-tooltip-padding, 10px 8px);
+      }
+
+      /* Typography */
+
+      .cr-padded-text {
+        padding-block-end: var(--cr-section-vertical-padding);
+        padding-block-start: var(--cr-section-vertical-padding);
+      }
+
+      .cr-title-text {
+        color: var(--cr-title-text-color);
+        font-size: 107.6923%; /* Go to 14px from 13px. */
+        font-weight: 500;
+      }
+
+      .cr-secondary-text {
+        color: var(--cr-secondary-text-color);
+        font-weight: 400;
+      }
+
+      .cr-form-field-label {
+        color: var(--cr-form-field-label-color);
+        display: block;
+        font-size: var(--cr-form-field-label-font-size);
+        font-weight: 500;
+        letter-spacing: .4px;
+        line-height: var(--cr-form-field-label-line-height);
+        margin-bottom: 8px;
+      }
+
+      .cr-vertical-tab {
+        align-items: center;
+        display: flex;
+      }
+
+      .cr-vertical-tab::before {
+        border-radius: 0 3px 3px 0;
+        content: '';
+        display: block;
+        flex-shrink: 0;
+        height: var(--cr-vertical-tab-height, 100%);
+        width: 4px;
+      }
+
+      .cr-vertical-tab.selected::before {
+        background: var(--cr-vertical-tab-selected-color, var(--cr-checked-color));
+      }
+
+      :host-context([dir=rtl]) .cr-vertical-tab::before {
+        /* Border-radius based on block/inline is not yet supported. */
+        transform: scaleX(-1);
+      }
+
+      .iph-anchor-highlight {
+        background-color: var(--cr-iph-anchor-highlight-color);
+      }
+    </style>
+  </template>
+</dom-module>
+<script type="module" src="./lazy_load.js"></script></body>
 </html>
